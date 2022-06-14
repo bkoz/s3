@@ -58,4 +58,10 @@ if __name__ == "__main__":
     # Load, print and make a prediction.
     loaded_model = tf.keras.models.load_model(remote_folder)
     loaded_model.summary()
-    logging.info(f'Prediction: {loaded_model((tf.constant([60]), tf.constant([18]), tf.constant([98.6])))}')
+    input = [-0.060083888471126556, -0.9738271832466125, 1.370796918869]
+    logging.info(f'Input: {input}: Prediction: {loaded_model((tf.constant(input[0], shape=(1,1)), tf.constant(input[1], shape=(1,1)), tf.constant(input[2], shape=(1,1))))}')
+    input = [0.060083888471126556, 0.9738271832466125, 1.01]
+    logging.info(f'Input: {input}: Prediction: {loaded_model((tf.constant(input[0], shape=(1,1)), tf.constant(input[1], shape=(1,1)), tf.constant(input[2], shape=(1,1))))}')
+    input = [0.2, 0.1, 1]
+    logging.info(f'Input: {input}: Prediction: {loaded_model((tf.constant(input[0], shape=(1,1)), tf.constant(input[1], shape=(1,1)), tf.constant(input[2], shape=(1,1))))}')
+
